@@ -7,7 +7,6 @@ var jumping = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = Vector2(10, 10)
 	show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +14,9 @@ func _process(delta):
 	pass
 	#print(delta)
 	
+func _move_to_position(pos):
+	position = pos	
+
 func _integrate_forces(state):
 	#print(state.get_linear_velocity())
 	var velocity = state.get_linear_velocity()
