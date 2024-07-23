@@ -9,6 +9,8 @@ size = Vector2(59.4958, 55.4867)
 [node name="Player" type="RigidBody2D"]
 mass = 0.52
 lock_rotation = true
+max_contacts_reported = 5
+contact_monitor = true
 script = ExtResource("1_c3mo5")
 metadata/_edit_group_ = true
 
