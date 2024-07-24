@@ -4,6 +4,8 @@ extends RigidBody2D
 @export var air_speed = 100
 @export var jump_force = 600
 var jumping = false
+var able_right = true
+var able_left = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +28,14 @@ func _integrate_forces(state):
 		if state.get_contact_local_normal(x) == Vector2(0, -1):
 			#print("floor")
 			jumping = false
+			if !able_right:
+				able_right = true
+			if !able_left:
+				able_left = true
+		if state.get_contact_local_normal(x) == Vector2(-1, 0):
+			able_right = false
+		if state.get_contact_local_normal(x) == Vector2(1, 0):
+			able_left = false
 			
 	if Input.is_action_pressed("jump") and !jumping:
 		velocity.y -= jump_force * step * 20
@@ -37,9 +47,13 @@ func _integrate_forces(state):
 		elif Input.is_action_pressed("move_left") and velocity.x > -200:
 			velocity.x -= ground_speed * step * 10
 	else:
-		if Input.is_action_pressed("move_right") and velocity.x < 200:
+		if Input.is_action_pressed("move_right") and able_right and velocity.x < 200:
+			if velocity.x < 0:
+				velocity.x = 0
 			velocity.x += air_speed * step * 10
-		elif Input.is_action_pressed("move_left") and velocity.x > -200:
+		elif Input.is_action_pressed("move_left") and able_left and velocity.x > -200:
+			if velocity.x > 0:
+				velocity.x = 0
 			velocity.x -= air_speed * step * 10
 		
 	state.set_linear_velocity(velocity)	
