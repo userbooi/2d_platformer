@@ -13,7 +13,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if abs(linear_velocity.x) == 0:
+		$AnimatedSprite2D.play("idle")
+	else:
+		$AnimatedSprite2D.play("walking")
+		$AnimatedSprite2D.flip_h = linear_velocity.x < 0
 	#print(delta)
 	
 func _move_to_position(pos):
@@ -32,9 +36,9 @@ func _integrate_forces(state):
 				able_right = true
 			if !able_left:
 				able_left = true
-		if state.get_contact_local_normal(x) == Vector2(-1, 0):
+		elif state.get_contact_local_normal(x) == Vector2(-1, 0):
 			able_right = false
-		if state.get_contact_local_normal(x) == Vector2(1, 0):
+		elif state.get_contact_local_normal(x) == Vector2(1, 0):
 			able_left = false
 			
 	if Input.is_action_pressed("jump") and !jumping:
