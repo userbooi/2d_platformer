@@ -27,10 +27,15 @@ func _integrate_forces(state):
 	#print(state.get_linear_velocity())
 	var velocity = state.get_linear_velocity()
 	var step = state.get_step()
+	var angle
 	
 	for x in range(state.get_contact_count()):
-		if state.get_contact_local_normal(x) == Vector2(0, -1):
-			#print("floor")
+		var local_normal = state.get_contact_local_normal(x)
+		var angle_between = acos(local_normal.dot(Vector2(0, -1))/(local_normal.length()))
+		print(round(rad_to_deg(angle_between)))
+	
+		if 0 <= angle_between and angle_between < 90:
+			angle = angle_between
 			jumping = false
 			if !able_right:
 				able_right = true
@@ -46,6 +51,7 @@ func _integrate_forces(state):
 		jumping = true
 	
 	if !jumping:
+		#if round(angle_between)
 		if Input.is_action_pressed("move_right") and velocity.x < 200:
 			velocity.x += ground_speed * step * 10
 		elif Input.is_action_pressed("move_left") and velocity.x > -200:
