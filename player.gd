@@ -36,10 +36,10 @@ func _integrate_forces(state):
 		var angle_between = acos(local_normal.dot(Vector2(0, -1))/(local_normal.length()))
 		#print(round(rad_to_deg(angle_between)))
 	
-		if 0 <= angle_between and angle_between < 90:
+		if 0 <= angle_between and angle_between < PI/2:
 			angle = angle_between
 			direction = Vector2(-local_normal.y, local_normal.x)
-			print(direction)
+			print(angle, direction)
 			jumping = false
 			if !able_right:
 				able_right = true
@@ -55,15 +55,17 @@ func _integrate_forces(state):
 		jumping = true
 	
 	if !jumping:
-		if direction == Vector2(1, 0):
-			if Input.is_action_pressed("move_right") and velocity.x < 200:
-				velocity.x += ground_speed * step * 10
-			elif Input.is_action_pressed("move_left") and velocity.x > -200:
-				velocity.x -= ground_speed * step * 10
-		else:
-			if Input.is_action_pressed("move_left"):
-				direction *= -1
-			velocity = direction.normalized() * ground_speed * step * 10
+		if angle != null and 0 <= angle and angle < PI/2:
+			if direction == Vector2(1, 0):
+				if Input.is_action_pressed("move_right") and velocity.x < 200:
+					velocity.x += ground_speed * step * 10
+				elif Input.is_action_pressed("move_left") and velocity.x > -200:
+					velocity.x -= ground_speed * step * 10
+			else:
+				if Input.is_action_pressed("move_left"):
+					direction *= -1
+				if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+					velocity = direction.normalized() * slope_speed * step * 20
 	else:
 		if Input.is_action_pressed("move_right") and able_right and velocity.x < 200:
 			if velocity.x < 0:
