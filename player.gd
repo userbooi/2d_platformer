@@ -3,6 +3,7 @@ extends RigidBody2D
 @export var ground_speed = 400
 @export var air_speed = 100
 @export var jump_force = 600
+@export var slope_speed = 600
 var jumping = false
 var able_right = true
 var able_left = true
@@ -28,14 +29,17 @@ func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
 	var step = state.get_step()
 	var angle
+	var direction = Vector2.ZERO
 	
 	for x in range(state.get_contact_count()):
 		var local_normal = state.get_contact_local_normal(x)
 		var angle_between = acos(local_normal.dot(Vector2(0, -1))/(local_normal.length()))
-		print(round(rad_to_deg(angle_between)))
+		#print(round(rad_to_deg(angle_between)))
 	
 		if 0 <= angle_between and angle_between < 90:
 			angle = angle_between
+			direction = Vector2(-local_normal.y, local_normal.x)
+			print(direction)
 			jumping = false
 			if !able_right:
 				able_right = true
@@ -51,11 +55,15 @@ func _integrate_forces(state):
 		jumping = true
 	
 	if !jumping:
-		#if round(angle_between)
-		if Input.is_action_pressed("move_right") and velocity.x < 200:
-			velocity.x += ground_speed * step * 10
-		elif Input.is_action_pressed("move_left") and velocity.x > -200:
-			velocity.x -= ground_speed * step * 10
+		if direction == Vector2(1, 0):
+			if Input.is_action_pressed("move_right") and velocity.x < 200:
+				velocity.x += ground_speed * step * 10
+			elif Input.is_action_pressed("move_left") and velocity.x > -200:
+				velocity.x -= ground_speed * step * 10
+		else:
+			if Input.is_action_pressed("move_left"):
+				direction *= -1
+			velocity = direction.normalized() * ground_speed * step * 10
 	else:
 		if Input.is_action_pressed("move_right") and able_right and velocity.x < 200:
 			if velocity.x < 0:
