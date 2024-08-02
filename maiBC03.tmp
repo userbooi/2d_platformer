@@ -30,7 +30,7 @@ scale = Vector2(0.45, 0.45)
 [node name="Player" parent="." instance=ExtResource("2_2lpjf")]
 
 [node name="PositionGetter" type="Marker2D" parent="."]
-position = Vector2(0, -52)
+position = Vector2(-3, 53)
 
 [connection signal="advance" from="Door" to="." method="_on_door_advance"]
 [connection signal="advance" from="Door" to="Player" method="_on_door_advance"]

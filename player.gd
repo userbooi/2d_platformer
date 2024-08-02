@@ -23,7 +23,7 @@ func _process(delta):
 	#print(delta)
 	
 func _move_to_position(pos):
-	position = pos	
+	position = pos
 
 func _integrate_forces(state):
 	#print(state.get_linear_velocity())

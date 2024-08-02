@@ -66,3 +66,10 @@ animation = &"walking"
 position = Vector2(-3.5, 0.500001)
 scale = Vector2(1.00847, 1.02727)
 shape = SubResource("RectangleShape2D_e43eh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.4, 1.4)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
