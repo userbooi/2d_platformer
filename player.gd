@@ -78,4 +78,7 @@ func _integrate_forces(state):
 				velocity.x -= air_speed * step * 10
 			
 		state.set_linear_velocity(velocity)	
-	
+
+
+func _on_door_advance():
+	able_to_move = false

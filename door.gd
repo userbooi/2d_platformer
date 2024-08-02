@@ -1,4 +1,5 @@
 extends Area2D
+signal advance
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,3 +19,6 @@ func go_to_position(pos):
 func _on_body_entered(body):
 	if body.name == "Player":
 		$AnimationPlayer.play("fading_door")
+		advance.emit()
+		
+		await get_tree().create_timer(3.0).timeout
