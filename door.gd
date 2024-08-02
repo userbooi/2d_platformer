@@ -13,7 +13,7 @@ func _process(delta):
 	
 func go_to_position(pos):
 	position = pos
-	self_modulate.a = 1
+	$door_door.modulate.a = 1
 
 
 func _on_body_entered(body):
