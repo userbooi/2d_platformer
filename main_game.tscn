@@ -47,8 +47,8 @@ _data = {
 }
 
 [node name="MainGame" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_qkinc")
-level = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(77, 693)
@@ -64,12 +64,11 @@ shape = SubResource("RectangleShape2D_y51n6")
 [node name="Levels" parent="." instance=ExtResource("2_2k5ch")]
 
 [node name="Door" parent="." instance=ExtResource("3_beml8")]
+position = Vector2(-157, -31)
 scale = Vector2(0.45, 0.45)
 
 [node name="Player" parent="." instance=ExtResource("2_2lpjf")]
-
-[node name="PositionGetter" type="Marker2D" parent="."]
-position = Vector2(893, 648)
+jump_force = 800
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -82,6 +81,9 @@ libraries = {
 }
 
 [node name="HUD" parent="." instance=ExtResource("5_3sy2g")]
+
+[node name="PositionGetter" type="Marker2D" parent="."]
+position = Vector2(60, -1598)
 
 [connection signal="advance" from="Door" to="." method="_on_door_advance"]
 [connection signal="advance" from="Door" to="Player" method="_on_door_advance"]

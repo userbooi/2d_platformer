@@ -1,6 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bwdum01mpf5gk"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bwdum01mpf5gk"]
 
 [ext_resource type="Texture2D" uid="uid://bhkrnqxutdmc1" path="res://Tilesheet/game_tilesheet.png" id="1_k2ee4"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_mys6p"]
+tile_data = PackedInt32Array(0, 262144, 1, 65536, 262144, 2, 1, 327680, 1, 65537, 327680, 2, 2, 393216, 1, 65538, 393216, 2, 3, 458752, 1, 65539, 458752, 2)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7ud7"]
 resource_name = "base_level_images"
@@ -29,7 +32,7 @@ texture_region_size = Vector2i(64, 65)
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32.5, 32, 32.5, -32, 32.5, -20.5, 12.5)
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32.5, 32, 32.5, -32, 32.5)
 6:0/0 = 0
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
@@ -50,15 +53,19 @@ texture_region_size = Vector2i(64, 65)
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
 4:1/0 = 0
+4:1/0/y_sort_origin = 30
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
 5:1/0 = 0
+5:1/0/y_sort_origin = 30
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
 6:1/0 = 0
+6:1/0/y_sort_origin = 30
 6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:1/0/physics_layer_0/angular_velocity = 0.0
 7:1/0 = 0
+7:1/0/y_sort_origin = 30
 7:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
@@ -75,15 +82,19 @@ texture_region_size = Vector2i(64, 65)
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
 4:2/0 = 0
+4:2/0/y_sort_origin = 30
 4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:2/0/physics_layer_0/angular_velocity = 0.0
 5:2/0 = 0
+5:2/0/y_sort_origin = 30
 5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:2/0/physics_layer_0/angular_velocity = 0.0
 6:2/0 = 0
+6:2/0/y_sort_origin = 30
 6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:2/0/physics_layer_0/angular_velocity = 0.0
 7:2/0 = 0
+7:2/0/y_sort_origin = 30
 7:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:2/0/physics_layer_0/angular_velocity = 0.0
 
@@ -92,3 +103,4 @@ tile_size = Vector2i(64, 65)
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_j7ud7")
+pattern_0 = SubResource("TileMapPattern_mys6p")

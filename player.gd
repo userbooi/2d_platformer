@@ -9,7 +9,7 @@ signal death
 var jumping = false
 var able_right = true
 var able_left = true
-var able_to_move = true
+var able_to_move = false
 var new_pos
 var move_to_pos
 
@@ -19,8 +19,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if position.y >= 708:		
-		position.y = -100
+	if 708 <= position.y and position.y <= 900:		
+		position.y = 1000
 		set_gravity_scale(0)
 		set_linear_velocity(Vector2.ZERO)
 		
