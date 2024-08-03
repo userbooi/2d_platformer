@@ -3,7 +3,14 @@ signal start_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	reset_hud()
+	$Text.position = Vector2(164, 700)
+	$RestartButton.position = Vector2(510, 869)
+	$StartButton.position = Vector2(510, 869)
+	
+	$Text.text = "Just a Platformer"
+	$Text.set("theme_override_colors/font_color", Color("3aad00"))
+	$ColorRect.color = Color(0, 0, 0, 0)
+	#reset_hud()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

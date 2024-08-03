@@ -6,21 +6,23 @@ var door_positions = [Vector2(1105, 322), Vector2(1065, 387)] # subtract 68 to y
 var player_positions = [Vector2(60, 525), Vector2(69, 265)] # subtract 60 to y value
 var start_game_position = Vector2(60, -1598)
 
+var play_opening = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Player.move_to_position(start_game_position)
 	$Levels.show_level(level, levels)
 	$Door.hide()
-	start_game_cutscene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if $Player.position.y >= 322 and play_opening:
+		start_game_cutscene()
 	
 	
 func start_game_cutscene():
-	if $Player.position.y >= 322:
-		pass
+	$HUD/AnimationPlayer.play("start_load")
+	play_opening = false
 
 func begin():
 	level = 1
