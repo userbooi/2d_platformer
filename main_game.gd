@@ -7,13 +7,19 @@ var player_positions = [Vector2(60, 525), Vector2(69, 265)] # subtract 60 to y v
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Player._move_to_position(player_positions[level-1])
-	$Door.go_to_position(door_positions[level-1])
-	$Levels.show_level(level, levels)
+	begin()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func begin():
+	#level = 1
+	
+	$Player.move_to_position(player_positions[level-1])
+	$Player.set_gravity_scale(1)
+	$Door.go_to_position(door_positions[level-1])
+	$Levels.show_level(level, levels)
 
 func _on_door_advance():
 	await get_tree().create_timer(2.0).timeout

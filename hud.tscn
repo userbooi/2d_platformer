@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://db03e5mmdb6h5"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_p06r4"]
+[ext_resource type="Texture2D" uid="uid://cco4p3dqjtab4" path="res://art/restart.png" id="2_v28f5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntla6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f4bte"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q14d8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kcick"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rekdr"]
+
+[sub_resource type="Animation" id="Animation_fvgw1"]
+resource_name = "death_load"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(291, 700), Vector2(291, 255.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RestartButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(510, 869), Vector2(510, 424)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ki8p"]
+_data = {
+"death_load": SubResource("Animation_fvgw1")
+}
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_p06r4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.494118)
+
+[node name="Text" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = 376.0
+offset_right = 285.0
+offset_bottom = 513.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+autowrap_mode = 2
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 510.0
+offset_top = 869.0
+offset_right = 734.0
+offset_bottom = 1075.0
+scale = Vector2(0.575, 0.575)
+focus_mode = 0
+theme_override_colors/font_color = Color(0.312738, 0.805897, 0.522957, 1)
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ntla6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f4bte")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q14d8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kcick")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rekdr")
+icon = ExtResource("2_v28f5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7ki8p")
+}
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

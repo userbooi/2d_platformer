@@ -1,4 +1,6 @@
 extends RigidBody2D
+signal death
+
 
 @export var ground_speed = 400
 @export var air_speed = 100
@@ -8,13 +10,22 @@ var jumping = false
 var able_right = true
 var able_left = true
 var able_to_move = true
+var new_pos
+var move_to_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	show()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if position.y >= 708:		
+		position.y = -100
+		set_gravity_scale(0)
+		set_linear_velocity(Vector2.ZERO)
+		
+		death.emit()
+		
 	if abs(linear_velocity.x) == 0:
 		$AnimatedSprite2D.play("idle")
 	else:
@@ -22,11 +33,16 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = linear_velocity.x < 0
 	#print(delta)
 	
-func _move_to_position(pos):
-	position = pos
+func move_to_position(pos):
+	new_pos = pos
+	move_to_pos = true
 
 func _integrate_forces(state):
 	#print(state.get_linear_velocity())
+	if move_to_pos:
+		position = new_pos
+		move_to_pos = false
+	
 	if able_to_move:
 		var velocity = state.get_linear_velocity()
 		var step = state.get_step()
@@ -77,8 +93,7 @@ func _integrate_forces(state):
 					velocity.x = 0
 				velocity.x -= air_speed * step * 10
 			
-		state.set_linear_velocity(velocity)	
-
+		state.set_linear_velocity(velocity)
 
 func _on_door_advance():
 	able_to_move = false

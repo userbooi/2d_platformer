@@ -45,6 +45,7 @@ size = Vector2(58.5045, 100.266)
 
 [node name="Player" type="RigidBody2D"]
 mass = 0.52
+can_sleep = false
 lock_rotation = true
 max_contacts_reported = 5
 contact_monitor = true

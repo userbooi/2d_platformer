@@ -13,6 +13,7 @@ func _process(delta):
 	
 func go_to_position(pos):
 	position = pos
+	$AnimationPlayer.play(&"RESET")
 	$door_door.modulate.a = 1
 
 

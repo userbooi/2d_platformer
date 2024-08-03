@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mr3mnq3iou3g"]
+[gd_scene load_steps=8 format=3 uid="uid://mr3mnq3iou3g"]
 
 [ext_resource type="Script" path="res://door.gd" id="1_0m8lq"]
 [ext_resource type="Texture2D" uid="uid://bpkisi0o5n2h0" path="res://art/door/door_frame.png" id="1_1nw4o"]
@@ -6,6 +6,22 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lua5"]
 size = Vector2(300, 300)
+
+[sub_resource type="Animation" id="Animation_porti"]
+resource_name = "RESET"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_door:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_uaosy"]
 resource_name = "fading_door"
@@ -25,6 +41,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qil7m"]
 _data = {
+"RESET": SubResource("Animation_porti"),
 "fading_door": SubResource("Animation_uaosy")
 }
 
