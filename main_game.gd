@@ -2,8 +2,8 @@ extends Node2D
 
 enum STATE {OPENING, PLAYING, DEATH, WAITING, WIN}
 
-@export var level = 7
-@export var levels = 7
+@export var level = 8
+@export var levels = 8
 var door_positions = [
 	Vector2(1105, 322), 
 	Vector2(1065, 387), 
@@ -11,7 +11,8 @@ var door_positions = [
 	Vector2(470, -393),
 	Vector2(420, -588),
 	Vector2(931, -1107),
-	Vector2(79, -1043)
+	Vector2(79, -1043),
+	Vector2(1105, -1498)
 ] # subtract 68 to y value
 var player_positions = [
 	Vector2(60, 560), 
@@ -20,7 +21,8 @@ var player_positions = [
 	Vector2(57, 40),
 	Vector2(195, 40),
 	Vector2(125, -350),
-	Vector2(150, -285)
+	Vector2(150, -285),
+	Vector2(272, -610)
 ] # subtract 25 to y value
 var start_game_position = Vector2(60, -1598)
 
