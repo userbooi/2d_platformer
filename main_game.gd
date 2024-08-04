@@ -33,6 +33,7 @@ func start_game_cutscene():
 	game_state = STATE.WAITING
 
 func begin():
+	$ColorRect.color = Color(0, 0, 0, 0)
 	level = 1
 	
 	if game_state == STATE.OPENING:

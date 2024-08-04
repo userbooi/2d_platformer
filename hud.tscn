@@ -41,19 +41,19 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:position")
+tracks/0/path = NodePath("CanvasLayer/Text:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(164, 700), Vector2(164, 255.5)]
+"values": [Vector2(125, 700), Vector2(125, 253)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RestartButton:position")
+tracks/1/path = NodePath("CanvasLayer/RestartButton:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -65,7 +65,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MenuButton:position")
+tracks/2/path = NodePath("CanvasLayer/MenuButton:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -81,7 +81,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,19 +93,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Text:position")
+tracks/1/path = NodePath("CanvasLayer/Text:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.7, 1.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(164, 700), Vector2(164, 255.5)]
+"values": [Vector2(125, 700), Vector2(125, 253)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StartButton:position")
+tracks/2/path = NodePath("CanvasLayer/StartButton:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -121,19 +121,19 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:position")
+tracks/0/path = NodePath("CanvasLayer/Text:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(164, 700), Vector2(164, 68)]
+"values": [Vector2(125, 700), Vector2(125, 115)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MenuButton:position")
+tracks/1/path = NodePath("CanvasLayer/MenuButton:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -150,34 +150,42 @@ _data = {
 "win_load": SubResource("Animation_62rgc")
 }
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_p06r4")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 0.494118)
 
-[node name="Text" type="Label" parent="."]
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 10.0
+offset_bottom = 23.0
+text = "w"
+
+[node name="Text" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -285.0
-offset_top = -68.5
-offset_right = 539.0
-offset_bottom = 208.5
+offset_left = -451.0
+offset_top = -71.0
+offset_right = 451.0
+offset_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.756863, 0.74902, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.0274958, 0.223724, 0, 1)
 theme_override_font_sizes/font_size = 100
-text = "Game Over"
+text = "Truly Just a Platformer"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="StartButton" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="CanvasLayer"]
 offset_left = 510.0
 offset_top = 424.0
 offset_right = 717.0
@@ -191,7 +199,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_tf7id")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yxgxl")
 icon = ExtResource("3_0768k")
 
-[node name="RestartButton" type="Button" parent="."]
+[node name="RestartButton" type="Button" parent="CanvasLayer"]
 offset_left = 358.0
 offset_top = 424.0
 offset_right = 581.999
@@ -207,7 +215,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_kcick")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rekdr")
 icon = ExtResource("2_wxkmh")
 
-[node name="MenuButton" type="Button" parent="."]
+[node name="MenuButton" type="Button" parent="CanvasLayer"]
 offset_left = 650.0
 offset_top = 424.0
 offset_right = 857.0
@@ -226,6 +234,6 @@ libraries = {
 "": SubResource("AnimationLibrary_7ki8p")
 }
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuButton" to="." method="_on_menu_button_pressed"]
