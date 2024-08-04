@@ -1,8 +1,19 @@
-[gd_scene load_steps=17 format=3 uid="uid://db03e5mmdb6h5"]
+[gd_scene load_steps=24 format=3 uid="uid://db03e5mmdb6h5"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_p06r4"]
 [ext_resource type="Texture2D" uid="uid://cco4p3dqjtab4" path="res://art/buttons/restart.png" id="2_wxkmh"]
 [ext_resource type="Texture2D" uid="uid://dcok6trryhe4v" path="res://art/buttons/start.png" id="3_0768k"]
+[ext_resource type="Texture2D" uid="uid://cc3eloe2vorte" path="res://art/buttons/menuW.png" id="4_psg5h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgg4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vl8ip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aodoy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tf7id"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yxgxl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntla6"]
 
@@ -14,15 +25,15 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rekdr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgg4i"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6ufb"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vl8ip"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8bot6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aodoy"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_du321"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tf7id"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hawl4"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yxgxl"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dqqfw"]
 
 [sub_resource type="Animation" id="Animation_fvgw1"]
 resource_name = "death_load"
@@ -37,7 +48,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(291, 700), Vector2(291, 255.5)]
+"values": [Vector2(164, 700), Vector2(164, 255.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -49,7 +60,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.5, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(510, 869), Vector2(510, 424)]
+"values": [Vector2(358, 869), Vector2(358, 424)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MenuButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(650, 869), Vector2(650, 424)]
 }
 
 [sub_resource type="Animation" id="Animation_b01v1"]
@@ -92,10 +115,39 @@ tracks/2/keys = {
 "values": [Vector2(510, 869), Vector2(510, 424)]
 }
 
+[sub_resource type="Animation" id="Animation_62rgc"]
+resource_name = "win_load"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Text:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(164, 700), Vector2(164, 68)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(510, 869), Vector2(510, 424)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ki8p"]
 _data = {
 "death_load": SubResource("Animation_fvgw1"),
-"start_load": SubResource("Animation_b01v1")
+"start_load": SubResource("Animation_b01v1"),
+"win_load": SubResource("Animation_62rgc")
 }
 
 [node name="HUD" type="CanvasLayer"]
@@ -112,33 +164,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -412.0
+offset_left = -285.0
 offset_top = -68.5
-offset_right = 412.0
-offset_bottom = 68.5
+offset_right = 539.0
+offset_bottom = 208.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_color = Color(0.756863, 0.74902, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.0274958, 0.223724, 0, 1)
 theme_override_font_sizes/font_size = 100
-text = "Just a Platformer"
+text = "Game Over"
+horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="RestartButton" type="Button" parent="."]
-offset_left = 510.0
-offset_top = 424.0
-offset_right = 734.0
-offset_bottom = 630.0
-scale = Vector2(0.575, 0.575)
-focus_mode = 0
-theme_override_colors/font_color = Color(0.312738, 0.805897, 0.522957, 1)
-theme_override_font_sizes/font_size = 62
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ntla6")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_f4bte")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_q14d8")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_kcick")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rekdr")
-icon = ExtResource("2_wxkmh")
 
 [node name="StartButton" type="Button" parent="."]
 offset_left = 510.0
@@ -154,10 +191,41 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_tf7id")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yxgxl")
 icon = ExtResource("3_0768k")
 
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 358.0
+offset_top = 424.0
+offset_right = 581.999
+offset_bottom = 630.0
+scale = Vector2(0.575, 0.575)
+focus_mode = 0
+theme_override_colors/font_color = Color(0.312738, 0.805897, 0.522957, 1)
+theme_override_font_sizes/font_size = 62
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ntla6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_f4bte")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q14d8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kcick")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rekdr")
+icon = ExtResource("2_wxkmh")
+
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 650.0
+offset_top = 424.0
+offset_right = 857.0
+offset_bottom = 622.0
+scale = Vector2(0.63, 0.63)
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j6ufb")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8bot6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_du321")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hawl4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dqqfw")
+icon = ExtResource("4_psg5h")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_7ki8p")
 }
 
-[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

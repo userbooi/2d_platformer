@@ -45,7 +45,7 @@ func _integrate_forces(state):
 		position = new_pos
 		move_to_pos = false
 	
-	if able_to_move:
+	if get_parent().game_state == get_parent().STATE.PLAYING:
 		var velocity = state.get_linear_velocity()
 		var step = state.get_step()
 		var angle
@@ -96,6 +96,3 @@ func _integrate_forces(state):
 				velocity.x -= air_speed * step * 10
 			
 		state.set_linear_velocity(velocity)
-
-func _on_door_advance():
-	able_to_move = false
