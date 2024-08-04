@@ -91,10 +91,10 @@ jump_force = 800
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 4
 y_sort_enabled = true
-offset_top = -592.0
+offset_top = -2077.0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0, 0, 0, 0)
+color = Color(1, 1, 1, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -104,7 +104,7 @@ libraries = {
 [node name="HUD" parent="." instance=ExtResource("5_3sy2g")]
 
 [node name="PositionGetter" type="Marker2D" parent="."]
-position = Vector2(88, -25)
+position = Vector2(420, -520)
 
 [connection signal="advance" from="Door" to="." method="_on_door_advance"]
 [connection signal="advance" from="Door" to="Player" method="_on_door_advance"]

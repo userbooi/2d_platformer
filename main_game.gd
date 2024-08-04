@@ -2,35 +2,37 @@ extends Node2D
 
 enum STATE {OPENING, PLAYING, DEATH, WAITING, WIN}
 
-@export var level = 1
-@export var levels = 4
+@export var level = 5
+@export var levels = 5
 var door_positions = [
 	Vector2(1105, 322), 
 	Vector2(1065, 387), 
 	Vector2(1019, 192),
 	Vector2(470, -393),
+	Vector2(420, -588)
 ] # subtract 68 to y value
 var player_positions = [
 	Vector2(60, 560), 
 	Vector2(69, 290),
 	Vector2(66, 430),
 	Vector2(57, 40),
+	Vector2(195, 40),
 ] # subtract 25 to y value
 var start_game_position = Vector2(60, -1598)
 
-var game_state = STATE.OPENING
-#var game_state = STATE.PLAYING
+#var game_state = STATE.OPENING
+var game_state = STATE.PLAYING
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	begin()
-	#if !(int($Player.position.y) == player_positions[level-1].y):
-		#$Player.move_to_position(player_positions[level-1])
-	#$Player.set_gravity_scale(1)
-	#$Player.able_to_move = true
-	#$Door.go_to_position(door_positions[level-1])
-	#$Door.show()
-	#$Levels.show_level(level, levels)
+	#begin()
+	if !(int($Player.position.y) == player_positions[level-1].y):
+		$Player.move_to_position(player_positions[level-1])
+	$Player.set_gravity_scale(1)
+	$Player.able_to_move = true
+	$Door.go_to_position(door_positions[level-1])
+	$Door.show()
+	$Levels.show_level(level, levels)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
