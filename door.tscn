@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://81hqitphcevh" path="res://art/door/door_door.png" id="2_yvhao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lua5"]
-size = Vector2(300, 300)
+size = Vector2(189, 286)
 
 [sub_resource type="Animation" id="Animation_porti"]
 resource_name = "RESET"
@@ -55,6 +55,7 @@ texture = ExtResource("1_1nw4o")
 texture = ExtResource("2_yvhao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 7)
 shape = SubResource("RectangleShape2D_4lua5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

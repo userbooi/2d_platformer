@@ -41,9 +41,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e43eh"]
-size = Vector2(47.5968, 72.0356)
+size = Vector2(33.7144, 48.6727)
 
 [node name="Player" type="RigidBody2D"]
+y_sort_enabled = true
 position = Vector2(1, 0)
 mass = 0.52
 can_sleep = false
@@ -60,12 +61,12 @@ scale = Vector2(1.00847, 1.02727)
 texture = ExtResource("1_poxcn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.34, 0.34)
 sprite_frames = SubResource("SpriteFrames_q00mg")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -4.76837e-07)
+position = Vector2(-1, 4.76837e-07)
 scale = Vector2(1.00847, 1.02727)
 shape = SubResource("RectangleShape2D_e43eh")
 

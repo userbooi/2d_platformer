@@ -81,7 +81,6 @@ shape = SubResource("RectangleShape2D_y51n6")
 [node name="Levels" parent="." instance=ExtResource("2_2k5ch")]
 
 [node name="Door" parent="." instance=ExtResource("3_beml8")]
-z_index = -1
 y_sort_enabled = true
 position = Vector2(-157, -31)
 scale = Vector2(0.45, 0.45)
@@ -105,7 +104,7 @@ libraries = {
 [node name="HUD" parent="." instance=ExtResource("5_3sy2g")]
 
 [node name="PositionGetter" type="Marker2D" parent="."]
-position = Vector2(66, 455)
+position = Vector2(88, -25)
 
 [connection signal="advance" from="Door" to="." method="_on_door_advance"]
 [connection signal="advance" from="Door" to="Player" method="_on_door_advance"]
