@@ -104,7 +104,7 @@ libraries = {
 [node name="HUD" parent="." instance=ExtResource("5_3sy2g")]
 
 [node name="PositionGetter" type="Marker2D" parent="."]
-position = Vector2(420, -520)
+position = Vector2(931, -1039)
 
 [connection signal="advance" from="Door" to="." method="_on_door_advance"]
 [connection signal="advance" from="Door" to="Player" method="_on_door_advance"]
