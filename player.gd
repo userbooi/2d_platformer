@@ -24,6 +24,8 @@ func _process(delta):
 		set_gravity_scale(0)
 		set_linear_velocity(Vector2.ZERO)
 		
+		get_parent().game_state = get_parent().STATE.DEATH
+		
 		death.emit()
 		
 	if abs(linear_velocity.x) == 0:

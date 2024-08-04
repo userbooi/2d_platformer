@@ -118,7 +118,7 @@ offset_right = 412.0
 offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.228438, 0.679102, 3.85046e-07, 1)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.0274958, 0.223724, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "Just a Platformer"
@@ -146,6 +146,7 @@ offset_top = 424.0
 offset_right = 717.0
 offset_bottom = 622.0
 scale = Vector2(0.595, 0.595)
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mgg4i")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_vl8ip")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_aodoy")
@@ -159,3 +160,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

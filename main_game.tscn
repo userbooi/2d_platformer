@@ -64,6 +64,8 @@ shape = SubResource("RectangleShape2D_y51n6")
 [node name="Levels" parent="." instance=ExtResource("2_2k5ch")]
 
 [node name="Door" parent="." instance=ExtResource("3_beml8")]
+z_index = -1
+y_sort_enabled = true
 position = Vector2(-157, -31)
 scale = Vector2(0.45, 0.45)
 
@@ -71,6 +73,8 @@ scale = Vector2(0.45, 0.45)
 jump_force = 800
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 4
+y_sort_enabled = true
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 0)
