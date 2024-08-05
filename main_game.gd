@@ -2,8 +2,8 @@ extends Node2D
 
 enum STATE {OPENING, PLAYING, DEATH, WAITING, WIN}
 
-@export var level = 9
-@export var levels = 9
+@export var level = 1
+@export var levels = 10
 var door_positions = [
 	Vector2(1105, 322), 
 	Vector2(1065, 387), 
@@ -13,7 +13,8 @@ var door_positions = [
 	Vector2(931, -1107),
 	Vector2(79, -1043),
 	Vector2(1105, -1498),
-	Vector2(1024, -1628)
+	Vector2(1024, -1628),
+	Vector2(1024, -3643)
 ] # subtract 68 to y value
 var player_positions = [
 	Vector2(60, 560), 
@@ -24,23 +25,24 @@ var player_positions = [
 	Vector2(125, -350),
 	Vector2(150, -285),
 	Vector2(272, -610),
-	Vector2(190, -740)
+	Vector2(190, -740),
+	Vector2(190, -1000)
 ] # subtract 25 to y value
 var start_game_position = Vector2(60, -1598)
 
-#var game_state = STATE.OPENING
-var game_state = STATE.PLAYING
+var game_state = STATE.OPENING
+#var game_state = STATE.PLAYING
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#begin()
-	if !(int($Player.position.y) == player_positions[level-1].y):
-		$Player.move_to_position(player_positions[level-1])
-	$Player.set_gravity_scale(1)
-	$Player.able_to_move = true
-	$Door.go_to_position(door_positions[level-1])
-	$Door.show()
-	$Levels.show_level(level, levels)
+	begin()
+	#if !(int($Player.position.y) == player_positions[level-1].y):
+		#$Player.move_to_position(player_positions[level-1])
+	#$Player.set_gravity_scale(1)
+	#$Player.able_to_move = true
+	#$Door.go_to_position(door_positions[level-1])
+	#$Door.show()
+	#$Levels.show_level(level, levels)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

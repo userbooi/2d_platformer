@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://db03e5mmdb6h5" path="res://hud.tscn" id="5_3sy2g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51n6"]
-size = Vector2(18, 2732.5)
+size = Vector2(50, 4351.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8v3l"]
-size = Vector2(58, 2732)
+size = Vector2(103, 4380)
 
 [sub_resource type="Animation" id="Animation_ppeu4"]
 resource_name = "fade_out"
@@ -74,11 +74,11 @@ script = ExtResource("1_qkinc")
 position = Vector2(77, 693)
 
 [node name="right_wall" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1084, -1414.75)
+position = Vector2(1100, -2224.25)
 shape = SubResource("RectangleShape2D_y51n6")
 
 [node name="left_wall" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-106, -1409)
+position = Vector2(-128.5, -2233)
 shape = SubResource("RectangleShape2D_w8v3l")
 
 [node name="Levels" parent="." instance=ExtResource("2_2k5ch")]
@@ -95,7 +95,7 @@ jump_force = 800
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 4
 y_sort_enabled = true
-offset_top = -2077.0
+offset_top = -4165.0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(1, 1, 1, 0)
@@ -108,7 +108,7 @@ libraries = {
 [node name="HUD" parent="." instance=ExtResource("5_3sy2g")]
 
 [node name="PositionGetter" type="Marker2D" parent="."]
-position = Vector2(1024, -1560)
+position = Vector2(1024, -3575)
 
 [connection signal="advance" from="Door" to="." method="_on_door_advance"]
 [connection signal="advance" from="Door" to="Player" method="_on_door_advance"]
