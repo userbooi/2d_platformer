@@ -46,7 +46,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $Player.position.y >= 525 and game_state == STATE.OPENING:
+	if $NewPlayer.position.y >= 525 and game_state == STATE.OPENING:
 		start_game_cutscene()
 	
 	
@@ -59,15 +59,15 @@ func begin():
 	
 	if game_state == STATE.OPENING:
 		level = 1
-		$Player.set_gravity_scale(1)
-		$Player.move_to_position(start_game_position)
+		$NewPlayer.gravitate = true
+		$NewPlayer.move_to_position(start_game_position)
 		$Levels.show_level(level, levels)
 		$Door.hide()
 	else:
-		if !(int($Player.position.y) == player_positions[level-1].y):
-			$Player.move_to_position(player_positions[level-1])
-		$Player.set_gravity_scale(1)
-		$Player.able_to_move = true
+		if !(int($NewPlayer.position.y) == player_positions[level-1].y):
+			$NewPlayer.move_to_position(player_positions[level-1])
+		$NewPlayer.gravitate = true
+		$NewPlayer.able_to_move = true
 		$Door.go_to_position(door_positions[level-1])
 		$Door.show()
 		$Levels.show_level(level, levels)
@@ -90,7 +90,7 @@ func set_up_level():
 	
 	await get_tree().create_timer(1.5).timeout
 	
-	$Player.move_to_position(player_positions[level-1])
+	$NewPlayer.move_to_position(player_positions[level-1])
 	$Door.go_to_position(door_positions[level-1])
 	$Door.show()
 	$Levels.show_level(level, levels)

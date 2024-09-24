@@ -18,7 +18,7 @@ func go_to_position(pos):
 
 
 func _on_body_entered(body):
-	if body.name == "Player":
+	if body.name == "NewPlayer":
 		$AnimationPlayer.play("fading_door")
 		
 		advance.emit()

@@ -54,6 +54,7 @@ func _integrate_forces(state):
 		for x in range(state.get_contact_count()):
 			var local_normal = state.get_contact_local_normal(x)
 			var angle_between = acos(local_normal.dot(Vector2(0, -1))/(local_normal.length()))
+			print(local_normal.length())
 			#print(round(rad_to_deg(angle_between)))
 		
 			if 0 <= angle_between and angle_between < PI/2:

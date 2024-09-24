@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://main_game.gd" id="1_qkinc"]
 [ext_resource type="PackedScene" uid="uid://bpsudctbj0y2b" path="res://levels.tscn" id="2_2k5ch"]
-[ext_resource type="PackedScene" uid="uid://cikkdd5vf3d8x" path="res://player.tscn" id="2_2lpjf"]
 [ext_resource type="PackedScene" uid="uid://mr3mnq3iou3g" path="res://door.tscn" id="3_beml8"]
 [ext_resource type="PackedScene" uid="uid://db03e5mmdb6h5" path="res://hud.tscn" id="5_3sy2g"]
+[ext_resource type="PackedScene" uid="uid://3cqs553xpluk" path="res://new_player.tscn" id="5_c2mox"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51n6"]
 size = Vector2(50, 4351.5)
@@ -89,8 +89,7 @@ y_sort_enabled = true
 position = Vector2(-157, -31)
 scale = Vector2(0.45, 0.45)
 
-[node name="Player" parent="." instance=ExtResource("2_2lpjf")]
-jump_force = 800
+[node name="NewPlayer" parent="." instance=ExtResource("5_c2mox")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 4
@@ -98,7 +97,7 @@ y_sort_enabled = true
 offset_top = -4165.0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(1, 1, 1, 0)
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -108,10 +107,8 @@ libraries = {
 [node name="HUD" parent="." instance=ExtResource("5_3sy2g")]
 
 [node name="PositionGetter" type="Marker2D" parent="."]
-position = Vector2(1024, -3575)
 
 [connection signal="advance" from="Door" to="." method="_on_door_advance"]
-[connection signal="advance" from="Door" to="Player" method="_on_door_advance"]
-[connection signal="death" from="Player" to="HUD" method="_on_player_death"]
+[connection signal="death" from="NewPlayer" to="HUD" method="_on_player_death"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="start_game" from="HUD" to="." method="begin"]

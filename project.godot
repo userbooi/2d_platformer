@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="2d_platformer"
+config/name="JustAPlatformer"
+config/description="This is Just a simple platformer game with 10 levels"
+config/version="1.0"
 run/main_scene="res://main_game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://player_icon.svg"
 
 [display]
 
